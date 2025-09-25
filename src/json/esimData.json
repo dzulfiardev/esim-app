@@ -1,0 +1,247 @@
+[
+  {
+    "title": "eSIM Singapore",
+    "slug": "esim-singapore",
+    "regions": "Asia",
+    "type": "Instant",
+    "images": [
+      "/images/singapore_1.jpg",
+      "/images/singapore_2.jpg",
+      "/images/singapore_3.jpg"
+    ],
+    "dataSize": [
+      {
+        "size": "3GB",
+        "prices": [
+          { "price": "Rp.52.000", "validity": "07" },
+          { "price": "Rp.82.000", "validity": "14" },
+          { "price": "Rp.102.000", "validity": "24" },
+          { "price": "Rp.122.000", "validity": "34" }
+        ]
+      },
+      {
+        "size": "5GB",
+        "prices": [
+          { "price": "Rp.72.000", "validity": "07" },
+          { "price": "Rp.92.000", "validity": "14" },
+          { "price": "Rp.122.000", "validity": "24" },
+          { "price": "Rp.132.000", "validity": "34" }
+        ]
+      },
+      {
+        "size": "10GB",
+        "prices": [
+          { "price": "Rp.92.000", "validity": "07" },
+          { "price": "Rp.112.000", "validity": "14" },
+          { "price": "Rp.152.000", "validity": "24" },
+          { "price": "Rp.182.000", "validity": "34" }
+        ]
+      },
+      {
+        "size": "15GB",
+        "prices": [
+          { "price": "Rp.112.000", "validity": "07" },
+          { "price": "Rp.132.000", "validity": "14" },
+          { "price": "Rp.152.000", "validity": "24" },
+          { "price": "Rp.202.000", "validity": "34" }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "eSIM Indonesia",
+    "slug": "esim-indonesia",
+    "regions": "Asia",
+    "type": "Topupable",
+    "images": [
+      "/images/indonesia_1.jpg",
+      "/images/indonesia_2.jpg",
+      "/images/indonesia_3.jpg"
+    ],
+    "dataSize": [
+      {
+        "size": "3GB",
+        "prices": [
+          { "price": "Rp.62.000", "validity": "07" },
+          { "price": "Rp.92.000", "validity": "14" },
+          { "price": "Rp.112.000", "validity": "24" },
+          { "price": "Rp.132.000", "validity": "34" }
+        ]
+      },
+      {
+        "size": "5GB",
+        "prices": [
+          { "price": "Rp.82.000", "validity": "07" },
+          { "price": "Rp.102.000", "validity": "14" },
+          { "price": "Rp.132.000", "validity": "24" },
+          { "price": "Rp.142.000", "validity": "34" }
+        ]
+      },
+      {
+        "size": "10GB",
+        "prices": [
+          { "price": "Rp.92.000", "validity": "07" },
+          { "price": "Rp.112.000", "validity": "14" },
+          { "price": "Rp.152.000", "validity": "24" },
+          { "price": "Rp.182.000", "validity": "34" }
+        ]
+      },
+      {
+        "size": "15GB",
+        "prices": [
+          { "price": "Rp.112.000", "validity": "07" },
+          { "price": "Rp.132.000", "validity": "14" },
+          { "price": "Rp.152.000", "validity": "24" },
+          { "price": "Rp.202.000", "validity": "34" }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "eSIM USA",
+    "slug": "esim-usa",
+    "regions": "Amerika",
+    "type": "Instant",
+    "images": [
+      "/images/usa_1.jpg",
+      "/images/usa_2.jpg",
+      "/images/usa_3.jpg"
+    ],
+    "dataSize": [
+      {
+        "size": "3GB",
+        "prices": [
+          { "price": "Rp.92.000", "validity": "07" },
+          { "price": "Rp.112.000", "validity": "14" },
+          { "price": "Rp.142.000", "validity": "24" },
+          { "price": "Rp.172.000", "validity": "34" }
+        ]
+      },
+      {
+        "size": "5GB",
+        "prices": [
+          { "price": "Rp.102.000", "validity": "07" },
+          { "price": "Rp.132.000", "validity": "14" },
+          { "price": "Rp.162.000", "validity": "24" },
+          { "price": "Rp.192.000", "validity": "34" }
+        ]
+      },
+      {
+        "size": "10GB",
+        "prices": [
+          { "price": "Rp.122.000", "validity": "07" },
+          { "price": "Rp.142.000", "validity": "14" },
+          { "price": "Rp.182.000", "validity": "24" },
+          { "price": "Rp.212.000", "validity": "34" }
+        ]
+      },
+      {
+        "size": "15GB",
+        "prices": [
+          { "price": "Rp.142.000", "validity": "07" },
+          { "price": "Rp.172.000", "validity": "14" },
+          { "price": "Rp.182.000", "validity": "24" },
+          { "price": "Rp.272.000", "validity": "34" }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "eSIM South Korea",
+    "slug": "esim-south-korea",
+    "regions": "Asia",
+    "type": "Topupable",
+    "images": [
+      "/images/south_korea_1.jpg",
+      "/images/south_korea_2.jpg",
+      "/images/south_korea_3.jpg"
+    ],
+    "dataSize": [
+      {
+        "size": "3GB",
+        "prices": [
+          { "price": "Rp.52.000", "validity": "07" },
+          { "price": "Rp.82.000", "validity": "14" },
+          { "price": "Rp.102.000", "validity": "24" },
+          { "price": "Rp.122.000", "validity": "34" }
+        ]
+      },
+      {
+        "size": "5GB",
+        "prices": [
+          { "price": "Rp.72.000", "validity": "07" },
+          { "price": "Rp.92.000", "validity": "14" },
+          { "price": "Rp.122.000", "validity": "24" },
+          { "price": "Rp.132.000", "validity": "34" }
+        ]
+      },
+      {
+        "size": "10GB",
+        "prices": [
+          { "price": "Rp.92.000", "validity": "07" },
+          { "price": "Rp.112.000", "validity": "14" },
+          { "price": "Rp.152.000", "validity": "24" },
+          { "price": "Rp.182.000", "validity": "34" }
+        ]
+      },
+      {
+        "size": "15GB",
+        "prices": [
+          { "price": "Rp.112.000", "validity": "07" },
+          { "price": "Rp.132.000", "validity": "14" },
+          { "price": "Rp.152.000", "validity": "24" },
+          { "price": "Rp.202.000", "validity": "34" }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "eSIM Italy",
+    "slug": "esim-italy",
+    "regions": "Europe",
+    "type": "Topupable",
+    "images": [
+      "/images/italy_1.jpg",
+      "/images/italy_2.jpg",
+      "/images/italy_3.jpg"
+    ],
+    "dataSize": [
+      {
+        "size": "3GB",
+        "prices": [
+          { "price": "Rp.52.000", "validity": "07" },
+          { "price": "Rp.82.000", "validity": "14" },
+          { "price": "Rp.102.000", "validity": "24" },
+          { "price": "Rp.122.000", "validity": "34" }
+        ]
+      },
+      {
+        "size": "5GB",
+        "prices": [
+          { "price": "Rp.72.000", "validity": "07" },
+          { "price": "Rp.92.000", "validity": "14" },
+          { "price": "Rp.122.000", "validity": "24" },
+          { "price": "Rp.132.000", "validity": "34" }
+        ]
+      },
+      {
+        "size": "10GB",
+        "prices": [
+          { "price": "Rp.92.000", "validity": "07" },
+          { "price": "Rp.112.000", "validity": "14" },
+          { "price": "Rp.152.000", "validity": "24" },
+          { "price": "Rp.182.000", "validity": "34" }
+        ]
+      },
+      {
+        "size": "15GB",
+        "prices": [
+          { "price": "Rp.112.000", "validity": "07" },
+          { "price": "Rp.132.000", "validity": "14" },
+          { "price": "Rp.152.000", "validity": "24" },
+          { "price": "Rp.202.000", "validity": "34" }
+        ]
+      }
+    ]
+  }
+]
