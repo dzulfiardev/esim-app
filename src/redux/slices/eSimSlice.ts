@@ -58,7 +58,7 @@ export const eSimSlice = createSlice({
         state.typeFilter
       );
     },
-    setTypeFilter: (state, action: PayloadAction<string>) => {
+    setJenisFilter: (state, action: PayloadAction<string>) => {
       state.typeFilter = action.payload;
       state.filteredESims = applyFilters(
         state.allESims,
@@ -69,8 +69,8 @@ export const eSimSlice = createSlice({
     },
     resetFilters: (state) => {
       state.searchQuery = '';
-      state.regionFilter = 'Semua Region';
-      state.typeFilter = 'Semua Jenis';
+      state.regionFilter = '';
+      state.typeFilter = '';
       state.filteredESims = state.allESims;
     },
   },
@@ -81,17 +81,22 @@ function applyFilters(
   eSims: ESim[],
   searchQuery: string,
   regionFilter: string,
-  typeFilter: string
+  jenisFilter: string
 ): ESim[] {
   return eSims.filter((eSim) => {
     const matchesSearch = eSim.title.toLowerCase().includes(searchQuery.toLowerCase());
-    const matchesRegion = regionFilter === 'Semua Region' || eSim.regions === regionFilter;
-    const matchesType = typeFilter === 'Semua Jenis' || eSim.type === typeFilter;
-    
-    return matchesSearch && matchesRegion && matchesType;
+    const matchesRegion = regionFilter === '' || eSim.regions.toLowerCase() === regionFilter.toLowerCase();
+    const matchesJenis = jenisFilter === '' || eSim.type.toLowerCase() === jenisFilter.toLowerCase();
+
+    return matchesSearch && matchesRegion && matchesJenis;
   });
 }
 
-export const { setSearchQuery, setRegionFilter, setTypeFilter, resetFilters } = eSimSlice.actions;
+export const { setSearchQuery, setRegionFilter, setJenisFilter, resetFilters } = eSimSlice.actions;
+
+// Selector to get single eSIM data by slug
+export const selectESimBySlug = (state: { eSim: ESimState }, slug: string): ESim | undefined => {
+  return state.eSim.allESims.find((eSim) => eSim.slug === slug);
+};
 
 export default eSimSlice.reducer;

@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { ESim } from "@/redux/slices/eSimSlice";
 import Icon from "@mdi/react";
-import { mdiLightningBolt, mdiCashPlus } from "@mdi/js";
+import { mdiLightningBoltOutline, mdiCashPlus } from "@mdi/js";
 import Link from "next/link";
 
 interface ProductCardProps {
@@ -33,7 +33,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           <div className="flex items-center mb-2">
             {product.type === "Instant" ? (
               <div className="flex items-center">
-                <Icon path={mdiLightningBolt} size={0.9} className="text-[#2B3499]" />
+                <Icon path={mdiLightningBoltOutline} size={0.9} className="text-[#2B3499]" />
                 <span className="ml-1 text-xs text-gray-900 font-bold">Instant</span>
               </div>
             ) : (
