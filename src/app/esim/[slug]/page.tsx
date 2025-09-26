@@ -9,14 +9,14 @@ import { mdiChevronLeft, mdiLightningBoltOutline, mdiCashPlus } from "@mdi/js";
 import { Carousel, CarouselContent, CarouselItem} from "@/components/ui/carousel";
 import { CarouselDots, useCarouselDots } from "@/components/ui/carousel/carousel-dots";
 import Autoplay from "embla-carousel-autoplay";
-import { useState } from "react";
+import { useState, use } from "react";
 
-export default function ESimProductPage({ params }: { params: { slug: string } }) {
-  const { slug } = params;
+export default function ESimProductPage({ params }: { params: Promise<{ slug: string }> }) {
+  const resolvedParams = use(params);
+  const { slug } = resolvedParams;
+  
   const eSim = useESimBySlug(slug);
   const [api, setApi] = useState<any>(null);
-  
-  // Use the custom hook to handle carousel dots functionality
   const { selectedIndex, scrollTo } = useCarouselDots(api);
 
   // If eSIM not found, show 404 page
@@ -26,10 +26,10 @@ export default function ESimProductPage({ params }: { params: { slug: string } }
 
   return (
     <div className="max-w-[768px] mx-auto flex flex-col min-h-screen bg-gray-100">
-      <header className="text-white w-full h-80 top-0 z-0">
-        <div className="items-center mt-4 mb-3 absolute top-4 left-4 z-10">
+      <header className="text-white w-full h-80 top-0 z-0 relative">
+        <div className="items-center mt-4 mb-3 absolute top-4 sm:top-5 left-5 sm:left-4 z-10">
           <Link href="/" className="mr-2" aria-label="Go back">
-            <Icon path={mdiChevronLeft} size={1} />
+            <Icon path={mdiChevronLeft} size={1.2} className="font-bold" />
           </Link>
         </div>
         <Carousel
@@ -51,7 +51,7 @@ export default function ESimProductPage({ params }: { params: { slug: string } }
             ))}
           </CarouselContent>
           
-          <div className="absolute bottom-32 left-0 right-0 ">
+          <div className="absolute bottom-32 sm:bottom-12 left-0 right-0 ">
             <CarouselDots 
               api={api} 
               count={eSim.images.length} 
@@ -62,18 +62,8 @@ export default function ESimProductPage({ params }: { params: { slug: string } }
         </Carousel>
       </header>
 
-      {/* Product Details */}
       <main className="flex-grow pb-16 z-2">
         <div className="bg-white rounded-[30px] mt-[-30px] p-4">
-          {/* <div className="relative w-full h-64 mb-4">
-            <Image 
-              src={eSim.images[0]} 
-              alt={eSim.title} 
-              fill 
-              sizes="(max-width: 768px) 100vw, 768px" 
-              style={{ objectFit: "cover", borderRadius: "20px" }} 
-            />
-          </div> */}
 
           <div className="mb-6">
             <h2 className="text-2xl font-bold mb-2">{eSim.title}</h2>

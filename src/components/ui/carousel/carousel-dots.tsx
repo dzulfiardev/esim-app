@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { useEffect, useCallback, useState } from "react";
 
 interface CarouselDotsProps {
   api: any;
@@ -35,16 +36,16 @@ export function CarouselDots({
 
 // Create a hook for easier integration with Embla Carousel
 export function useCarouselDots(api: any) {
-  const [selectedIndex, setSelectedIndex] = React.useState(0);
+  const [selectedIndex, setSelectedIndex] = useState(0);
 
   // Handle slide changes to update the dots
-  const onSelect = React.useCallback(() => {
+  const onSelect = useCallback(() => {
     if (!api) return;
     setSelectedIndex(api.selectedScrollSnap());
   }, [api]);
 
   // Initialize and update the current slide when the API changes
-  React.useEffect(() => {
+  useEffect(() => {
     if (!api) return;
     onSelect();
     api.on("select", onSelect);
@@ -57,7 +58,7 @@ export function useCarouselDots(api: any) {
   }, [api, onSelect]);
 
   // Handle dot click to navigate to a slide
-  const scrollTo = React.useCallback(
+  const scrollTo = useCallback(
     (index: number) => {
       if (!api) return;
       api.scrollTo(index);
