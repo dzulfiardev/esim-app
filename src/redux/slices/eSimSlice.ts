@@ -13,6 +13,7 @@ export interface DataSize {
 
 export interface ESim {
   title: string;
+  country: string;
   slug: string;
   regions: string;
   type: string;

@@ -1,6 +1,7 @@
 [
   {
     "title": "eSIM Singapore",
+    "country": "Singapore",
     "slug": "esim-singapore",
     "regions": "Asia",
     "type": "Instant",
@@ -16,7 +17,7 @@
           { "price": "Rp.52.000", "validity": "07" },
           { "price": "Rp.82.000", "validity": "14" },
           { "price": "Rp.102.000", "validity": "24" },
-          { "price": "Rp.122.000", "validity": "34" }
+          { "price": "Rp.122.000", "validity": "31" }
         ]
       },
       {
@@ -25,7 +26,7 @@
           { "price": "Rp.72.000", "validity": "07" },
           { "price": "Rp.92.000", "validity": "14" },
           { "price": "Rp.122.000", "validity": "24" },
-          { "price": "Rp.132.000", "validity": "34" }
+          { "price": "Rp.132.000", "validity": "31" }
         ]
       },
       {
@@ -34,7 +35,7 @@
           { "price": "Rp.92.000", "validity": "07" },
           { "price": "Rp.112.000", "validity": "14" },
           { "price": "Rp.152.000", "validity": "24" },
-          { "price": "Rp.182.000", "validity": "34" }
+          { "price": "Rp.182.000", "validity": "31" }
         ]
       },
       {
@@ -43,13 +44,14 @@
           { "price": "Rp.112.000", "validity": "07" },
           { "price": "Rp.132.000", "validity": "14" },
           { "price": "Rp.152.000", "validity": "24" },
-          { "price": "Rp.202.000", "validity": "34" }
+          { "price": "Rp.202.000", "validity": "31" }
         ]
       }
     ]
   },
   {
     "title": "eSIM Indonesia",
+    "country": "Indonesia",
     "slug": "esim-indonesia",
     "regions": "Asia",
     "type": "Topupable",
@@ -65,7 +67,7 @@
           { "price": "Rp.62.000", "validity": "07" },
           { "price": "Rp.92.000", "validity": "14" },
           { "price": "Rp.112.000", "validity": "24" },
-          { "price": "Rp.132.000", "validity": "34" }
+          { "price": "Rp.132.000", "validity": "31" }
         ]
       },
       {
@@ -74,7 +76,7 @@
           { "price": "Rp.82.000", "validity": "07" },
           { "price": "Rp.102.000", "validity": "14" },
           { "price": "Rp.132.000", "validity": "24" },
-          { "price": "Rp.142.000", "validity": "34" }
+          { "price": "Rp.142.000", "validity": "31" }
         ]
       },
       {
@@ -83,7 +85,7 @@
           { "price": "Rp.92.000", "validity": "07" },
           { "price": "Rp.112.000", "validity": "14" },
           { "price": "Rp.152.000", "validity": "24" },
-          { "price": "Rp.182.000", "validity": "34" }
+          { "price": "Rp.182.000", "validity": "31" }
         ]
       },
       {
@@ -92,13 +94,14 @@
           { "price": "Rp.112.000", "validity": "07" },
           { "price": "Rp.132.000", "validity": "14" },
           { "price": "Rp.152.000", "validity": "24" },
-          { "price": "Rp.202.000", "validity": "34" }
+          { "price": "Rp.202.000", "validity": "31" }
         ]
       }
     ]
   },
   {
     "title": "eSIM USA",
+    "country": "United States",
     "slug": "esim-usa",
     "regions": "Amerika",
     "type": "Instant",
@@ -114,7 +117,7 @@
           { "price": "Rp.92.000", "validity": "07" },
           { "price": "Rp.112.000", "validity": "14" },
           { "price": "Rp.142.000", "validity": "24" },
-          { "price": "Rp.172.000", "validity": "34" }
+          { "price": "Rp.172.000", "validity": "31" }
         ]
       },
       {
@@ -123,7 +126,7 @@
           { "price": "Rp.102.000", "validity": "07" },
           { "price": "Rp.132.000", "validity": "14" },
           { "price": "Rp.162.000", "validity": "24" },
-          { "price": "Rp.192.000", "validity": "34" }
+          { "price": "Rp.192.000", "validity": "31" }
         ]
       },
       {
@@ -132,7 +135,7 @@
           { "price": "Rp.122.000", "validity": "07" },
           { "price": "Rp.142.000", "validity": "14" },
           { "price": "Rp.182.000", "validity": "24" },
-          { "price": "Rp.212.000", "validity": "34" }
+          { "price": "Rp.212.000", "validity": "31" }
         ]
       },
       {
@@ -141,13 +144,14 @@
           { "price": "Rp.142.000", "validity": "07" },
           { "price": "Rp.172.000", "validity": "14" },
           { "price": "Rp.182.000", "validity": "24" },
-          { "price": "Rp.272.000", "validity": "34" }
+          { "price": "Rp.272.000", "validity": "31" }
         ]
       }
     ]
   },
   {
     "title": "eSIM South Korea",
+    "country": "South Korea",
     "slug": "esim-south-korea",
     "regions": "Asia",
     "type": "Topupable",
@@ -163,7 +167,7 @@
           { "price": "Rp.52.000", "validity": "07" },
           { "price": "Rp.82.000", "validity": "14" },
           { "price": "Rp.102.000", "validity": "24" },
-          { "price": "Rp.122.000", "validity": "34" }
+          { "price": "Rp.122.000", "validity": "31" }
         ]
       },
       {
@@ -172,7 +176,7 @@
           { "price": "Rp.72.000", "validity": "07" },
           { "price": "Rp.92.000", "validity": "14" },
           { "price": "Rp.122.000", "validity": "24" },
-          { "price": "Rp.132.000", "validity": "34" }
+          { "price": "Rp.132.000", "validity": "31" }
         ]
       },
       {
@@ -181,7 +185,7 @@
           { "price": "Rp.92.000", "validity": "07" },
           { "price": "Rp.112.000", "validity": "14" },
           { "price": "Rp.152.000", "validity": "24" },
-          { "price": "Rp.182.000", "validity": "34" }
+          { "price": "Rp.182.000", "validity": "31" }
         ]
       },
       {
@@ -190,13 +194,14 @@
           { "price": "Rp.112.000", "validity": "07" },
           { "price": "Rp.132.000", "validity": "14" },
           { "price": "Rp.152.000", "validity": "24" },
-          { "price": "Rp.202.000", "validity": "34" }
+          { "price": "Rp.202.000", "validity": "31" }
         ]
       }
     ]
   },
   {
     "title": "eSIM Italy",
+    "country": "Italy",
     "slug": "esim-italy",
     "regions": "Europe",
     "type": "Topupable",
@@ -212,7 +217,7 @@
           { "price": "Rp.52.000", "validity": "07" },
           { "price": "Rp.82.000", "validity": "14" },
           { "price": "Rp.102.000", "validity": "24" },
-          { "price": "Rp.122.000", "validity": "34" }
+          { "price": "Rp.122.000", "validity": "31" }
         ]
       },
       {
@@ -221,7 +226,7 @@
           { "price": "Rp.72.000", "validity": "07" },
           { "price": "Rp.92.000", "validity": "14" },
           { "price": "Rp.122.000", "validity": "24" },
-          { "price": "Rp.132.000", "validity": "34" }
+          { "price": "Rp.132.000", "validity": "31" }
         ]
       },
       {
@@ -230,7 +235,7 @@
           { "price": "Rp.92.000", "validity": "07" },
           { "price": "Rp.112.000", "validity": "14" },
           { "price": "Rp.152.000", "validity": "24" },
-          { "price": "Rp.182.000", "validity": "34" }
+          { "price": "Rp.182.000", "validity": "31" }
         ]
       },
       {
@@ -239,7 +244,7 @@
           { "price": "Rp.112.000", "validity": "07" },
           { "price": "Rp.132.000", "validity": "14" },
           { "price": "Rp.152.000", "validity": "24" },
-          { "price": "Rp.202.000", "validity": "34" }
+          { "price": "Rp.202.000", "validity": "31" }
         ]
       }
     ]
