@@ -62,6 +62,7 @@ export default function ESimProductPage({ params }: { params: Promise<{ slug: st
       setDataSizeList(selectedDataSize.prices);
       setSelectedValidity(selectedDataSize.prices[0].validity);
       setPrice(selectedDataSize.prices[0].price);
+      setPriceRaw(selectedDataSize.prices[0].price_raw);
     }
   }
 

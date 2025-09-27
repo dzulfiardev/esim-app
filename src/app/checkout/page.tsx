@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Icon from "@mdi/react";
-import { mdiChevronLeft } from "@mdi/js";
+import { mdiChevronLeft, mdiCheck } from "@mdi/js";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import FormComponent from "@/components/Checkout/FormComponent";
@@ -135,7 +135,7 @@ export default function CheckoutPage() {
               setStep(1);
             }}
             className="bg-white text-[#2B3499] w-6 h-6 p-[1px] font-bold text-[13px] border rounded-full cursor-pointer text-center">
-            1
+            {secondStepActive ? <Icon path={mdiCheck} size={0.7} className="font-bold mt-[1px] ml-[1px]" /> : '1'}
           </span>
           <span className={`${secondStepActive ? "bg-white" : "bg-[#7F89E0]"} w-3 h-[2px]`}></span>
           <span className={`${secondStepActive ? "bg-white text-[#2B3499]" : "bg-[#7F89E0] text-white"} w-6 h-6 p-[2px] font-bold text-[13px] rounded-full cursor-pointer text-center`}>2</span>

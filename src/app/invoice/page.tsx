@@ -1,16 +1,10 @@
 "use client";
 
 import { Icon } from "@mdi/react";
-import { mdiChevronLeft, mdiCheck, mdiCheckDecagram, mdiContentCopy } from "@mdi/js";
+import { mdiChevronLeft, mdiCheck, mdiCheckDecagram, mdiContentCopy, mdiAutorenew } from "@mdi/js";
 import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
-import { 
-  formatDateToIndonesian, 
-  formatTimeToIndonesianTimezone, 
-  formatNumberWithDots,
-  maskEmailAddress,
-  maskWhatsappNumber,  
-} from "@/lib/utils";
+import { formatDateToIndonesian, formatTimeToIndonesianTimezone, formatNumberWithDots, maskEmailAddress, maskWhatsappNumber } from "@/lib/utils";
 
 interface OrderData {
   productId: string;
@@ -33,43 +27,56 @@ export default function InvoicePage() {
   const router = useRouter();
   const chargeFeeRaw = 2000;
 
-  const [chargeFee, setChargeFee] = useState<string>("");
-  const [defaultPrice, setDefaultPrice] = useState<string>("");
+  const [processing, setProcessing] = useState<boolean>(true);
+  const [chargeFee, setChargeFee] = useState<string>("-");
+  const [defaultPrice, setDefaultPrice] = useState<string>("-");
   const [defaultPriceRaw, setDefaultPriceRaw] = useState<number | undefined>(0);
   const [orderData, setOrderData] = useState<OrderData | null>(null);
-  const [formattedDate, setFormattedDate] = useState<string>("");
-  const [formattedTime, setFormattedTime] = useState<string>(""); 
-  const [maskEmail, setMaskEmail] = useState<string>("");
-  const [maskWhatsapp, setMaskWhatsapp] = useState<string>("");
+  const [formattedDate, setFormattedDate] = useState<string>("-");
+  const [formattedTime, setFormattedTime] = useState<string>("-");
+  const [maskEmail, setMaskEmail] = useState<string>("-");
+  const [maskWhatsapp, setMaskWhatsapp] = useState<string>("-");
+  const [tooltipMessage, setTooltipMessage] = useState<string>("");
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      const storedData = localStorage.getItem("eSimOrderData");
-      if (storedData) {
-        try {
-          const parsedData: OrderData = JSON.parse(storedData);console.log('parsedData', parsedData);
-          setOrderData(parsedData);
-          
-          const formatDate = formatDateToIndonesian(new Date(parsedData.timestamp))
-          setFormattedDate(formatDate);
-          const formatTime = formatTimeToIndonesianTimezone(new Date(parsedData.timestamp));
-          setFormattedTime(formatTime);
-          
-          if (parsedData.price_raw) {
-            const beforeChargePrice = parsedData.price_raw - chargeFeeRaw;
-            setDefaultPrice(formatNumberWithDots(beforeChargePrice));
-            setDefaultPriceRaw(beforeChargePrice);
-            setChargeFee(formatNumberWithDots(chargeFeeRaw));
-          }
+    setProcessing(true);
+    setTimeout(() => {
+      if (typeof window !== "undefined") {
+        const storedData = localStorage.getItem("eSimOrderData");
+        if (storedData) {
+          try {
+            const parsedData: OrderData = JSON.parse(storedData);
+            setOrderData(parsedData);
 
-          if (parsedData.email) setMaskEmail(maskEmailAddress(parsedData.email));
-          if (parsedData.whatsapp) setMaskWhatsapp(maskWhatsappNumber(parsedData.whatsapp));   
-        } catch (error) {
-          console.error("Failed to parse eSimOrderData from localStorage", error);
+            const formatDate = formatDateToIndonesian(new Date(parsedData.timestamp));
+            setFormattedDate(formatDate);
+            const formatTime = formatTimeToIndonesianTimezone(new Date(parsedData.timestamp));
+            setFormattedTime(formatTime);
+
+            if (parsedData.price_raw) {
+              const beforeChargePrice = parsedData.price_raw - chargeFeeRaw;
+              setDefaultPrice(formatNumberWithDots(beforeChargePrice));
+              setDefaultPriceRaw(beforeChargePrice);
+              setChargeFee(formatNumberWithDots(chargeFeeRaw));
+            }
+
+            if (parsedData.email) setMaskEmail(maskEmailAddress(parsedData.email));
+            if (parsedData.whatsapp) setMaskWhatsapp(maskWhatsappNumber(parsedData.whatsapp));
+            setProcessing(false);
+          } catch (error) {
+            console.error("Failed to parse eSimOrderData from localStorage", error);
+          }
         }
       }
-    }
+    }, 3000); // Simulate loading delay
   }, []);
+
+  const handleCopyToClipboard = (text: string) => {
+    navigator.clipboard.writeText(text).then(() => {
+      setTooltipMessage("Copied");
+      setTimeout(() => setTooltipMessage(""), 2000); // Reset tooltip after 2 seconds
+    });
+  };
 
   return (
     <div className="max-w-[768px] mx-auto flex flex-col min-h-screen bg-gray-100">
@@ -98,33 +105,44 @@ export default function InvoicePage() {
       </header>
       <main className="flex-grow pb-16 z-2">
         <div className="bg-white rounded-[30px] mt-[-30px] p-4 pb-10">
-          <div className="flex flex-col items-center justify-center">
-            <Icon path={mdiCheckDecagram} size={4.5} className="text-green-500" />
+          <div className="flex flex-col items-center justify-center relative">
+            <div className="w-20 h-20 bg-white absolute top-4 rounded-full z-1"></div>
+            {processing? (<Icon
+              path={mdiAutorenew}
+              size={4.5}
+              className={`text-yellow-400 z-3 ${processing ? 'animate-spin' : ''}`}
+            />) :(<Icon path={mdiCheckDecagram} size={4.5} className="text-green-500 z-3" />)}
+            
           </div>
 
           <div className="invoice-summary-wrapper bg-gray-50 pt-10 -mt-15 border-b border-dashed border-b-2">
-            <div className="total-price flex mt-18">
+            <div className="total-price flex mt-10">
               <div className="text-3xl font-bold text-[#2B3499] flex items-center justify-center w-full">
-                <div className="text-3xl font-bold text-[#2B3499]">{orderData?.price}</div>
+                <div className="text-3xl font-bold text-[#2B3499]">{orderData?.price ?? '-'}</div>
               </div>
             </div>
 
             <div className="flex justify-center gap-2 mt-3">
-              <p className="text-md text-gray-600 cursor-pointer">No. INV-00019928874</p>
-              <span>
+              <p className="text-md text-gray-600">{processing ? '-' : 'No. INV-00019928874'}</p>
+              <span onClick={() => handleCopyToClipboard("INV-00019928874")} className="text-[#2B3499] hover:text-blue-600 cursor-pointer relative">
                 <Icon path={mdiContentCopy} size={0.9} />
+                {tooltipMessage && <span className="tooltip text-sm text-gray-200 p-2 bg-gray-800 rounded top-6 right-0 absolute">{tooltipMessage}</span>}
               </span>
             </div>
 
             <div className="status-wrapper w-full mt-3 border-dashed border-t-2 p-3">
               <div className="flex justify-between items-center w-full">
                 <div className="text-sm text-gray-500 mt-2 mb-2">Status</div>
-                <div className="font-bold text-[#279D38] bg-[#E1FBD6] py-2 px-3 text-xs rounded-md">Berhasil</div>
+                {processing ? (
+                  <div className="font-bold text-yellow-700 bg-yellow-400 py-2 px-3 text-xs rounded-md">Processing...</div>
+                ) : (
+                  <div className="font-bold text-[#279D38] bg-[#E1FBD6] py-2 px-3 text-xs rounded-md">Berhasil</div>
+                )}
               </div>
 
               <div className="flex justify-between items-center w-full">
                 <div className="text-sm text-gray-500 mt-2 mb-2">No. Ref</div>
-                <div className="font-bold text-gray-900 text-sm rounded-md">20393848042135</div>
+                <div className="font-bold text-gray-900 text-sm rounded-md">{processing ? '-' : '20393848042135'}</div>
               </div>
 
               <div className="flex justify-between items-center w-full">
@@ -139,7 +157,7 @@ export default function InvoicePage() {
 
               <div className="flex justify-between items-center w-full">
                 <div className="text-sm text-gray-500 mt-2 mb-2">Metode Pembayaran</div>
-                <div className="font-bold text-gray-900 text-sm rounded-md">{orderData?.paymentMethod}</div>
+                <div className="font-bold text-gray-900 text-sm rounded-md">{orderData?.paymentMethod ?? '-'}</div>
               </div>
             </div>
 
@@ -150,22 +168,22 @@ export default function InvoicePage() {
 
               <div className="flex justify-between items-center w-full mt-1">
                 <div className="text-sm text-gray-500 mt-2 mb-2">Produk</div>
-                <div className="font-bold text-gray-900 text-sm rounded-md">{orderData?.productTitle}</div>
+                <div className="font-bold text-gray-900 text-sm rounded-md">{orderData?.productTitle ?? '-'}</div>
               </div>
 
               <div className="flex justify-between items-center w-full">
                 <div className="text-sm text-gray-500 mt-2 mb-2">Data Tersedia</div>
-                <div className="font-bold text-gray-900 text-sm rounded-md">{orderData?.selectedData}</div>
+                <div className="font-bold text-gray-900 text-sm rounded-md">{orderData?.selectedData ?? '-'}</div>
               </div>
 
               <div className="flex justify-between items-center w-full">
                 <div className="text-sm text-gray-500 mt-2 mb-2">Jumlah</div>
-                <div className="font-bold text-gray-900 text-sm rounded-md">1</div>
+                <div className="font-bold text-gray-900 text-sm rounded-md">{processing ? '' : '1'}</div>
               </div>
 
               <div className="flex justify-between items-center w-full">
                 <div className="text-sm text-gray-500 mt-2 mb-2">Nama Pelanggan</div>
-                <div className="font-bold text-gray-900 text-sm rounded-md">{orderData?.nama}</div>
+                <div className="font-bold text-gray-900 text-sm rounded-md">{orderData?.nama ?? '-'}</div>
               </div>
 
               <div className="flex justify-between items-center w-full">
@@ -179,7 +197,7 @@ export default function InvoicePage() {
               </div>
 
               <div className="mt-3">
-                <p className="text-center text-gray-500 text-sm tracking-wider">Kami akan segera mengirimkan kode QR eSIM ke email Anda. Check inbox (atau folder spam) ya!</p>
+                <p className="text-center text-gray-500 text-sm tracking-wide">Kami akan segera mengirimkan kode QR eSIM ke email Anda. Check inbox (atau folder spam) ya!</p>
               </div>
             </div>
 
@@ -201,8 +219,9 @@ export default function InvoicePage() {
           </div>
 
           <div className="mt-20">
-            <button onClick={() => router.push("/")} 
-              className={`w-full py-3 rounded-full font-bold transition duration-300 bg-[#2B3499] text-white cursor-pointer hover:bg-[#3D50C7]`}>Selesai</button>
+            <button onClick={() => router.push("/")} className={`w-full py-3 rounded-full font-bold transition duration-300 bg-[#2B3499] text-white cursor-pointer hover:bg-[#3D50C7]`}>
+              Selesai
+            </button>
           </div>
         </div>
       </main>
