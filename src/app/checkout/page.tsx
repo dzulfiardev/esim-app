@@ -34,6 +34,7 @@ export default function CheckoutPage() {
   const [whatsapp, setWhatsapp] = useState<string>("");
   const [paymentMethod, setPaymentMethod] = useState<string>("");
   const [step, setStep] = useState<number>(1);
+  const [secondStepActive, setSecondStepActive] = useState<boolean>(false);
 
   useEffect(() => {
     // Check the URL parameter for step
@@ -48,6 +49,8 @@ export default function CheckoutPage() {
       return;
     }
 
+    handleSecondStepActive();
+ 
     if (typeof window !== "undefined") {
       const storedData = localStorage.getItem("eSimOrderData");
       if (storedData) {
@@ -77,6 +80,15 @@ export default function CheckoutPage() {
     return nama.trim() !== "" && email.trim() !== "" && whatsapp.trim() !== "";
   };
 
+  const handleSecondStepActive = () => {
+    if (step < 2) {
+      setSecondStepActive(false);
+    }
+    if (step >= 2) {
+      setSecondStepActive(true);
+    }
+  };
+
   const handleLanjutkan = () => {
     if (step !== 2) {
       const nextStep = step + 1;
@@ -84,6 +96,8 @@ export default function CheckoutPage() {
       setStep(nextStep);
       return;
     }
+
+    handleSecondStepActive();
 
     if (step === 2 && typeof window !== "undefined") {
       const updatedData = {
@@ -100,12 +114,31 @@ export default function CheckoutPage() {
 
   return (
     <div className="max-w-[768px] bg-[#2B3499] mx-auto flex flex-col min-h-screen bg-gray-100">
-      <header className="bg-[#2B3499] text-white pt-3 pb-12 px-3 sm:px-10 w-full top-0 z-0">
+      <header className="flex justify-between items-center bg-[#2B3499] text-white pt-3 pb-12 px-3 sm:px-10 w-full top-0 z-0">
         <div className="flex items-center align-center mt-4 mb-3">
-          <button onClick={() => router.back()} className="mr-2 cursor-pointer" aria-label="Go back">
+          <button
+            onClick={() => {
+              router.back();
+              setStep(step - 1);
+            }}
+            className="mr-2 cursor-pointer"
+            aria-label="Go back">
             <Icon path={mdiChevronLeft} size={1.2} className="font-bold" />
           </button>
           <h1 className="text-xl font-bold">Detail Pemesanan</h1>
+        </div>
+
+        <div className="flex items-center mt-4 mb-3">
+          <span
+            onClick={() => {
+              router.push("/checkout?step=1");
+              setStep(1);
+            }}
+            className="bg-white text-[#2B3499] w-6 h-6 p-[1px] font-bold text-[13px] border rounded-full cursor-pointer text-center">
+            1
+          </span>
+          <span className={`${secondStepActive ? "bg-white" : "bg-[#7F89E0]"} w-3 h-[2px]`}></span>
+          <span className={`${secondStepActive ? "bg-white text-[#2B3499]" : "bg-[#7F89E0] text-white"} w-6 h-6 p-[2px] font-bold text-[13px] rounded-full cursor-pointer text-center`}>2</span>
         </div>
       </header>
 
@@ -163,7 +196,7 @@ export default function CheckoutPage() {
 
           {step === 1 && <FormComponent nama={nama} setNama={setNama} email={email} setEmail={setEmail} whatsapp={whatsapp} setWhatsapp={setWhatsapp} />}
 
-          {step === 2 && <PaymentMethodsComponent paymentMethod={paymentMethod} setPaymentMethod={setPaymentMethod} />}
+          {step === 2 && <PaymentMethodsComponent paymentMethod={paymentMethod} setPaymentMethod={setPaymentMethod} price={orderData?.price} priceRaw={orderData?.price_raw} />}
 
           <div className="mt-8 mb-5">
             <button

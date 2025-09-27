@@ -3,8 +3,11 @@
 import React, { useEffect, ReactNode } from "react";
 import Icon from "@mdi/react";
 import { mdiWallet } from "@mdi/js";
-// import { useAppSelector } from "@/redux/hooks";
+// import { useState } from "@/redux/hooks";
+import { useState } from "react";
 import { RadioGroup, RadioGroupItem } from "../ui/radio-group";
+import Image from "next/image";
+import { formatNumberWithDots } from "@/lib/utils";
 
 interface PaymentMethod {
   label: string;
@@ -16,18 +19,31 @@ interface PaymentMethod {
 interface PaymentMethodsComponentProps {
   paymentMethod: string;
   setPaymentMethod: (method: string) => void;
+  price: string | undefined;
+  priceRaw: number | undefined;
 }
 
-export default function PaymentMethodsComponent({ paymentMethod, setPaymentMethod }: PaymentMethodsComponentProps) {
+export default function PaymentMethodsComponent({ paymentMethod, setPaymentMethod, price, priceRaw }: PaymentMethodsComponentProps) {
+  const [chargeFee, setChargeFee] = useState<string>("");
+  const [defaultPrice, setDefaultPrice] = useState<string>("");
+  const [defaultPriceRaw, setDefaultPriceRaw] = useState<number | undefined>(priceRaw);
+  const chargeFeeRaw = 2000;
+
   const paymentMethods: PaymentMethod[] = [
     { label: "Saldo", icon: <Icon path={mdiWallet} size={1} />, value: "Saldo" },
-    { label: "VA BCA", value: "VA BCA" },
-    { label: "VA Mandiri", value: "VA Mandiri" },
-    { label: "VA BRI", value: "VA BRI" },
+    { label: "VA BCA", icon: <Image src="/images/bca-logo.png" alt="Bank BCA" width={50} height={50} />, value: "VA BCA" },
+    { label: "VA Mandiri", icon: <Image src="/images/mandiri-logo.png" alt="Bank Mandiri" width={50} height={50} />, value: "VA Mandiri" },
+    { label: "VA BRI", icon: <Image src="/images/bri-logo.png" alt="Bank BRI" width={50} height={50} />, value: "VA BRI" },
   ];
 
   useEffect(() => {
     setPaymentMethod(paymentMethods[0].value);
+    if (defaultPriceRaw) {
+      const beforeChargePrice = defaultPriceRaw - chargeFeeRaw;
+      console.log("Price before charge:", beforeChargePrice);
+      setDefaultPrice(formatNumberWithDots(beforeChargePrice));
+      setChargeFee(formatNumberWithDots(chargeFeeRaw));
+    }
   }, []);
 
   return (
@@ -37,7 +53,7 @@ export default function PaymentMethodsComponent({ paymentMethod, setPaymentMetho
           {paymentMethods.map((option) => (
             <div key={option.value} className="flex items-center justify-between p-4 border rounded-lg mb-3 cursor-pointer hover:bg-gray-50" onClick={() => setPaymentMethod(option.value)}>
               <div className="font-bold text-sm flex items-center">
-                <span className="mr-1">{option.icon}</span> <span>{option.label}</span>
+                <span className="mr-3">{option.icon}</span> <span>{option.label}</span>
               </div>
               <div className="flex items-center gap-4">
                 {option.value === "Saldo" && <span className="text-md text-gray-500">Rp.200.000</span>}
@@ -54,7 +70,7 @@ export default function PaymentMethodsComponent({ paymentMethod, setPaymentMetho
             <p>Harga</p>
           </div>
           <div className="font-bold text-sm text-gray-900">
-            <p>Rp32.000</p>
+            <p>Rp{defaultPrice}</p>
           </div>
         </div>
 
@@ -63,7 +79,7 @@ export default function PaymentMethodsComponent({ paymentMethod, setPaymentMetho
             <p>Biaya Layanan</p>
           </div>
           <div className="font-bold text-sm text-gray-900">
-            <p>Rp500</p>
+            <p>Rp{chargeFee}</p>
           </div>
         </div>
 
@@ -72,7 +88,7 @@ export default function PaymentMethodsComponent({ paymentMethod, setPaymentMetho
             <p>Total</p>
           </div>
           <div className="font-bold text-xl text-[#3D50C7]">
-            <p>Rp32.500</p>
+            <p>{price}</p>
           </div>
         </div>
       </div>

@@ -136,7 +136,7 @@ export default function Header() {
                 {regionOptions.map((option) => (
                   <div key={option.value} className="flex items-center justify-between">
                     <span className="font-bold text-sm">{option.label}</span>
-                    <RadioGroupItem value={option.value} className="h-6 w-6 cursor-pointer" />
+                    <RadioGroupItem value={option.value} className={`${option.value == selectedRegion ? "border-blue-900" : ""} h-6 w-6 cursor-pointer`} />
                   </div>
                 ))}
               </RadioGroup>
@@ -173,7 +173,7 @@ export default function Header() {
                   {jenisOptions.map((option) => (
                     <div key={option.value} className="flex items-center justify-between">
                       <span className="font-bold text-sm">{option.label}</span>
-                      <RadioGroupItem value={option.value} className="h-6 w-6 cursor-pointer" />
+                      <RadioGroupItem value={option.value} className={`${selectedJenis == option.value ? "border-blue-900" : ""} h-6 w-6 cursor-pointer`} />
                     </div>
                   ))}
                 </RadioGroup>

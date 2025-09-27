@@ -13,7 +13,7 @@ export default function ProductList() {
       ))}
       {filteredESims.length === 0 && (
         <div className="col-span-2 text-center py-10 text-gray-500">
-          No eSIM products found. Try changing your filters.
+          Product eSIM tidak ditemukan. Coba ubah filter Anda.
         </div>
       )}
     </div>
