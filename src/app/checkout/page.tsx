@@ -108,7 +108,7 @@ export default function CheckoutPage() {
         paymentMethod,
       };
       localStorage.setItem("eSimOrderData", JSON.stringify(updatedData));
-      alert("Data berhasil disimpan!");
+      router.push("/invoice");
     }
   };
 

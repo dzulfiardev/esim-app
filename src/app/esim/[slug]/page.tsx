@@ -52,6 +52,7 @@ export default function ESimProductPage({ params }: { params: Promise<{ slug: st
     setDataSizeList(eSim.dataSize[0].prices);
     setSelectedValidity(eSim.dataSize[0].prices[0].validity);
     setPrice(eSim.dataSize[0].prices[0].price);
+    setPriceRaw(eSim.dataSize[0].prices[0].price_raw);
   }, []);
 
   function handleDataSizeSelect(dataSize: string): void {

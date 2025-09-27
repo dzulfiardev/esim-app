@@ -64,30 +64,30 @@ export default function PaymentMethodsComponent({ paymentMethod, setPaymentMetho
         </RadioGroup>
       </div>
 
-      <div className="mt-10">
-        <div className="flex direction-row justify-between text-sm text-gray-600 mt-4">
+      <div className="mt-20">
+        <div className="flex direction-row justify-between text-md text-gray-600 mt-4">
           <div>
             <p>Harga</p>
           </div>
-          <div className="font-bold text-sm text-gray-900">
+          <div className="font-bold text-md text-gray-900">
             <p>Rp{defaultPrice}</p>
           </div>
         </div>
 
-        <div className="flex direction-row justify-between text-sm text-gray-600 mt-4">
+        <div className="flex direction-row justify-between text-md text-gray-600 mt-4">
           <div>
             <p>Biaya Layanan</p>
           </div>
-          <div className="font-bold text-sm text-gray-900">
+          <div className="font-bold text-md text-gray-900">
             <p>Rp{chargeFee}</p>
           </div>
         </div>
 
         <div className="flex direction-row justify-between mt-4">
-          <div className="text-md font-bold text-gray-900">
+          <div className="text-xl font-bold text-gray-900">
             <p>Total</p>
           </div>
-          <div className="font-bold text-xl text-[#3D50C7]">
+          <div className="font-bold text-2xl text-[#3D50C7]">
             <p>{price}</p>
           </div>
         </div>
