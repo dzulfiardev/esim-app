@@ -19,7 +19,6 @@ export default function ESimProductPage({ params }: { params: Promise<{ slug: st
   const router = useRouter();
 
   const eSim = useESimBySlug(slug) as ESim;
-  console.log("esim", eSim);
   const [api, setApi] = useState<any>(null);
   const { selectedIndex, scrollTo } = useCarouselDots(api);
 
@@ -36,15 +35,17 @@ export default function ESimProductPage({ params }: { params: Promise<{ slug: st
     }>;
   }
 
-  interface DataSizePriceType {
+  interface DataSizePriceType { 
     validity: string;
     price: string;
+    price_raw: number;
   }
 
   const [selectedData, setSelectedData] = useState<string>("");
   const [dataSizeList, setDataSizeList] = useState<DataSizePriceType[]>([]);
   const [selectedValidity, setSelectedValidity] = useState<string>("");
   const [price, setPrice] = useState<string>("RP-");
+  const [price_raw, setPriceRaw] = useState<number>(0);
 
   useEffect(() => {
     setSelectedData(eSim.dataSize[0].size);
@@ -63,14 +64,13 @@ export default function ESimProductPage({ params }: { params: Promise<{ slug: st
     }
   }
 
-  function handleValiditySelect(validity: string, price: string): void {
+  function handleValiditySelect(validity: string, price: string, price_raw: number): void {
     setSelectedValidity(validity);
     setPrice(price);
+    setPriceRaw(price_raw);
   }
 
-  // Function to handle order button click and save data to localStorage
   function handleOrder(): void {
-    // Create an order object with all the necessary information
     const orderData = {
       productId: eSim.slug,
       productTitle: eSim.title,
@@ -79,17 +79,16 @@ export default function ESimProductPage({ params }: { params: Promise<{ slug: st
       selectedData: selectedData,
       selectedValidity: selectedValidity,
       price: price,
+      price_raw: price_raw,
       timestamp: new Date().toISOString(),
+      unix_time: Math.floor(Date.now() / 1000),
     };
 
-    // Check if code is running in browser environment before using localStorage
     if (typeof window !== "undefined") {
       try {
         // Save to localStorage
         localStorage.setItem("eSimOrderData", JSON.stringify(orderData));
-        router.push('/checkout');
-
-        alert("Pesanan Anda telah ditambahkan ke keranjang!");
+        router.push('/checkout?step=1');
       } catch (error) {
         console.error("Error saving order data:", error);
         alert("Terjadi kesalahan saat menyimpan data pesanan.");
@@ -180,7 +179,7 @@ export default function ESimProductPage({ params }: { params: Promise<{ slug: st
             <div className="flex gap-2 flex-wrap">
               {dataSizeList.map((data, index) => (
                 <Button
-                  onClick={() => handleValiditySelect(data.validity, data.price)}
+                  onClick={() => handleValiditySelect(data.validity, data.price, data.price_raw)}
                   key={index}
                   className={`${
                     data.validity == selectedValidity ? "bg-[#2B3499] text-white" : "bg-gray-100 text-[#2B3499]"
@@ -202,7 +201,6 @@ export default function ESimProductPage({ params }: { params: Promise<{ slug: st
             </ul>
           </div>
 
-          {/* Buy Button */}
           <div className="mt-8 mb-5">
             <button onClick={handleOrder} className="w-full bg-[#2B3499] cursor-pointer text-white py-3 rounded-full font-bold hover:bg-[#3D50C7] transition duration-300">
               Pesan Sekarang

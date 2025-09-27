@@ -14,37 +14,37 @@
       {
         "size": "3GB",
         "prices": [
-          { "price": "Rp.52.000", "validity": "07" },
-          { "price": "Rp.82.000", "validity": "14" },
-          { "price": "Rp.102.000", "validity": "24" },
-          { "price": "Rp.122.000", "validity": "31" }
+          { "price": "Rp.52.000", "price_raw": 52000, "validity": "07" },
+          { "price": "Rp.82.000", "price_raw": 82000, "validity": "14" },
+          { "price": "Rp.102.000", "price_raw": 102000, "validity": "24" },
+          { "price": "Rp.122.000", "price_raw": 122000, "validity": "31" }
         ]
       },
       {
         "size": "5GB",
         "prices": [
-          { "price": "Rp.72.000", "validity": "07" },
-          { "price": "Rp.92.000", "validity": "14" },
-          { "price": "Rp.122.000", "validity": "24" },
-          { "price": "Rp.132.000", "validity": "31" }
+          { "price": "Rp.72.000", "price_raw": 72000, "validity": "07" },
+          { "price": "Rp.92.000", "price_raw": 92000, "validity": "14" },
+          { "price": "Rp.122.000", "price_raw": 122000, "validity": "24" },
+          { "price": "Rp.132.000", "price_raw": 132000, "validity": "31" }
         ]
       },
       {
         "size": "10GB",
         "prices": [
-          { "price": "Rp.92.000", "validity": "07" },
-          { "price": "Rp.112.000", "validity": "14" },
-          { "price": "Rp.152.000", "validity": "24" },
-          { "price": "Rp.182.000", "validity": "31" }
+          { "price": "Rp.92.000", "price_raw": 92000, "validity": "07" },
+          { "price": "Rp.112.000", "price_raw": 112000, "validity": "14" },
+          { "price": "Rp.152.000", "price_raw": 152000, "validity": "24" },
+          { "price": "Rp.182.000", "price_raw": 182000, "validity": "31" }
         ]
       },
       {
         "size": "15GB",
         "prices": [
-          { "price": "Rp.112.000", "validity": "07" },
-          { "price": "Rp.132.000", "validity": "14" },
-          { "price": "Rp.152.000", "validity": "24" },
-          { "price": "Rp.202.000", "validity": "31" }
+          { "price": "Rp.112.000", "price_raw": 112000, "validity": "07" },
+          { "price": "Rp.132.000", "price_raw": 132000, "validity": "14" },
+          { "price": "Rp.152.000", "price_raw": 152000, "validity": "24" },
+          { "price": "Rp.202.000", "price_raw": 202000, "validity": "31" }
         ]
       }
     ]
@@ -64,37 +64,37 @@
       {
         "size": "3GB",
         "prices": [
-          { "price": "Rp.62.000", "validity": "07" },
-          { "price": "Rp.92.000", "validity": "14" },
-          { "price": "Rp.112.000", "validity": "24" },
-          { "price": "Rp.132.000", "validity": "31" }
+          { "price": "Rp.62.000", "price_raw": 62000, "validity": "07" },
+          { "price": "Rp.92.000", "price_raw": 92000, "validity": "14" },
+          { "price": "Rp.112.000", "price_raw": 112000, "validity": "24" },
+          { "price": "Rp.132.000", "price_raw": 132000, "validity": "31" }
         ]
       },
       {
         "size": "5GB",
         "prices": [
-          { "price": "Rp.82.000", "validity": "07" },
-          { "price": "Rp.102.000", "validity": "14" },
-          { "price": "Rp.132.000", "validity": "24" },
-          { "price": "Rp.142.000", "validity": "31" }
+          { "price": "Rp.82.000", "price_raw": 82000, "validity": "07" },
+          { "price": "Rp.102.000", "price_raw": 102000, "validity": "14" },
+          { "price": "Rp.132.000", "price_raw": 132000, "validity": "24" },
+          { "price": "Rp.142.000", "price_raw": 142000, "validity": "31" }
         ]
       },
       {
         "size": "10GB",
         "prices": [
-          { "price": "Rp.92.000", "validity": "07" },
-          { "price": "Rp.112.000", "validity": "14" },
-          { "price": "Rp.152.000", "validity": "24" },
-          { "price": "Rp.182.000", "validity": "31" }
+          { "price": "Rp.92.000", "price_raw": 92000, "validity": "07" },
+          { "price": "Rp.112.000", "price_raw": 112000, "validity": "14" },
+          { "price": "Rp.152.000", "price_raw": 152000, "validity": "24" },
+          { "price": "Rp.182.000", "price_raw": 182000, "validity": "31" }
         ]
       },
       {
         "size": "15GB",
         "prices": [
-          { "price": "Rp.112.000", "validity": "07" },
-          { "price": "Rp.132.000", "validity": "14" },
-          { "price": "Rp.152.000", "validity": "24" },
-          { "price": "Rp.202.000", "validity": "31" }
+          { "price": "Rp.112.000", "price_raw": 112000, "validity": "07" },
+          { "price": "Rp.132.000", "price_raw": 132000, "validity": "14" },
+          { "price": "Rp.152.000", "price_raw": 152000, "validity": "24" },
+          { "price": "Rp.202.000", "price_raw": 202000, "validity": "31" }
         ]
       }
     ]
@@ -114,37 +114,37 @@
       {
         "size": "3GB",
         "prices": [
-          { "price": "Rp.92.000", "validity": "07" },
-          { "price": "Rp.112.000", "validity": "14" },
-          { "price": "Rp.142.000", "validity": "24" },
-          { "price": "Rp.172.000", "validity": "31" }
+          { "price": "Rp.92.000", "price_raw": 92000, "validity": "07" },
+          { "price": "Rp.112.000", "price_raw": 112000, "validity": "14" },
+          { "price": "Rp.142.000", "price_raw": 142000, "validity": "24" },
+          { "price": "Rp.172.000", "price_raw": 172000, "validity": "31" }
         ]
       },
       {
         "size": "5GB",
         "prices": [
-          { "price": "Rp.102.000", "validity": "07" },
-          { "price": "Rp.132.000", "validity": "14" },
-          { "price": "Rp.162.000", "validity": "24" },
-          { "price": "Rp.192.000", "validity": "31" }
+          { "price": "Rp.102.000", "price_raw": 102000, "validity": "07" },
+          { "price": "Rp.132.000", "price_raw": 132000, "validity": "14" },
+          { "price": "Rp.162.000", "price_raw": 162000, "validity": "24" },
+          { "price": "Rp.192.000", "price_raw": 192000, "validity": "31" }
         ]
       },
       {
         "size": "10GB",
         "prices": [
-          { "price": "Rp.122.000", "validity": "07" },
-          { "price": "Rp.142.000", "validity": "14" },
-          { "price": "Rp.182.000", "validity": "24" },
-          { "price": "Rp.212.000", "validity": "31" }
+          { "price": "Rp.122.000", "price_raw": 122000, "validity": "07" },
+          { "price": "Rp.142.000", "price_raw": 142000, "validity": "14" },
+          { "price": "Rp.182.000", "price_raw": 182000, "validity": "24" },
+          { "price": "Rp.212.000", "price_raw": 212000, "validity": "31" }
         ]
       },
       {
         "size": "15GB",
         "prices": [
-          { "price": "Rp.142.000", "validity": "07" },
-          { "price": "Rp.172.000", "validity": "14" },
-          { "price": "Rp.182.000", "validity": "24" },
-          { "price": "Rp.272.000", "validity": "31" }
+          { "price": "Rp.142.000", "price_raw": 142000, "validity": "07" },
+          { "price": "Rp.172.000", "price_raw": 172000, "validity": "14" },
+          { "price": "Rp.182.000", "price_raw": 182000, "validity": "24" },
+          { "price": "Rp.272.000", "price_raw": 272000, "validity": "31" }
         ]
       }
     ]
@@ -164,37 +164,37 @@
       {
         "size": "3GB",
         "prices": [
-          { "price": "Rp.52.000", "validity": "07" },
-          { "price": "Rp.82.000", "validity": "14" },
-          { "price": "Rp.102.000", "validity": "24" },
-          { "price": "Rp.122.000", "validity": "31" }
+          { "price": "Rp.52.000", "price_raw": 52000, "validity": "07" },
+          { "price": "Rp.82.000", "price_raw": 82000, "validity": "14" },
+          { "price": "Rp.102.000", "price_raw": 102000, "validity": "24" },
+          { "price": "Rp.122.000", "price_raw": 122000, "validity": "31" }
         ]
       },
       {
         "size": "5GB",
         "prices": [
-          { "price": "Rp.72.000", "validity": "07" },
-          { "price": "Rp.92.000", "validity": "14" },
-          { "price": "Rp.122.000", "validity": "24" },
-          { "price": "Rp.132.000", "validity": "31" }
+          { "price": "Rp.72.000", "price_raw": 72000, "validity": "07" },
+          { "price": "Rp.92.000", "price_raw": 92000, "validity": "14" },
+          { "price": "Rp.122.000", "price_raw": 122000, "validity": "24" },
+          { "price": "Rp.132.000", "price_raw": 132000, "validity": "31" }
         ]
       },
       {
         "size": "10GB",
         "prices": [
-          { "price": "Rp.92.000", "validity": "07" },
-          { "price": "Rp.112.000", "validity": "14" },
-          { "price": "Rp.152.000", "validity": "24" },
-          { "price": "Rp.182.000", "validity": "31" }
+          { "price": "Rp.92.000", "price_raw": 92000, "validity": "07" },
+          { "price": "Rp.112.000", "price_raw": 112000, "validity": "14" },
+          { "price": "Rp.152.000", "price_raw": 152000, "validity": "24" },
+          { "price": "Rp.182.000", "price_raw": 182000, "validity": "31" }
         ]
       },
       {
         "size": "15GB",
         "prices": [
-          { "price": "Rp.112.000", "validity": "07" },
-          { "price": "Rp.132.000", "validity": "14" },
-          { "price": "Rp.152.000", "validity": "24" },
-          { "price": "Rp.202.000", "validity": "31" }
+          { "price": "Rp.112.000", "price_raw": 112000, "validity": "07" },
+          { "price": "Rp.132.000", "price_raw": 132000, "validity": "14" },
+          { "price": "Rp.152.000", "price_raw": 152000, "validity": "24" },
+          { "price": "Rp.202.000", "price_raw": 202000, "validity": "31" }
         ]
       }
     ]
@@ -214,37 +214,37 @@
       {
         "size": "3GB",
         "prices": [
-          { "price": "Rp.52.000", "validity": "07" },
-          { "price": "Rp.82.000", "validity": "14" },
-          { "price": "Rp.102.000", "validity": "24" },
-          { "price": "Rp.122.000", "validity": "31" }
+          { "price": "Rp.52.000", "price_raw": 52000, "validity": "07" },
+          { "price": "Rp.82.000", "price_raw": 82000, "validity": "14" },
+          { "price": "Rp.102.000", "price_raw": 102000, "validity": "24" },
+          { "price": "Rp.122.000", "price_raw": 122000, "validity": "31" }
         ]
       },
       {
         "size": "5GB",
         "prices": [
-          { "price": "Rp.72.000", "validity": "07" },
-          { "price": "Rp.92.000", "validity": "14" },
-          { "price": "Rp.122.000", "validity": "24" },
-          { "price": "Rp.132.000", "validity": "31" }
+          { "price": "Rp.72.000", "price_raw": 72000, "validity": "07" },
+          { "price": "Rp.92.000", "price_raw": 92000, "validity": "14" },
+          { "price": "Rp.122.000", "price_raw": 122000, "validity": "24" },
+          { "price": "Rp.132.000", "price_raw": 132000, "validity": "31" }
         ]
       },
       {
         "size": "10GB",
         "prices": [
-          { "price": "Rp.92.000", "validity": "07" },
-          { "price": "Rp.112.000", "validity": "14" },
-          { "price": "Rp.152.000", "validity": "24" },
-          { "price": "Rp.182.000", "validity": "31" }
+          { "price": "Rp.92.000", "price_raw": 92000, "validity": "07" },
+          { "price": "Rp.112.000", "price_raw": 112000, "validity": "14" },
+          { "price": "Rp.152.000", "price_raw": 152000, "validity": "24" },
+          { "price": "Rp.182.000", "price_raw": 182000, "validity": "31" }
         ]
       },
       {
         "size": "15GB",
         "prices": [
-          { "price": "Rp.112.000", "validity": "07" },
-          { "price": "Rp.132.000", "validity": "14" },
-          { "price": "Rp.152.000", "validity": "24" },
-          { "price": "Rp.202.000", "validity": "31" }
+          { "price": "Rp.112.000", "price_raw": 112000, "validity": "07" },
+          { "price": "Rp.132.000", "price_raw": 132000, "validity": "14" },
+          { "price": "Rp.152.000", "price_raw": 152000, "validity": "24" },
+          { "price": "Rp.202.000", "price_raw": 202000, "validity": "31" }
         ]
       }
     ]

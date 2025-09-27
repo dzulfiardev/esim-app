@@ -3,6 +3,7 @@ import eSimData from '../../json/esimData.json';
 
 export interface Price {
   price: string;
+  price_raw: number;
   validity: string;
 }
 
