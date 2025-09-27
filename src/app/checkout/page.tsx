@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Icon from "@mdi/react";
 import { mdiChevronLeft } from "@mdi/js";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import FormComponent from "@/components/Checkout/FormComponent";
 import PaymentMethodsComponent from "@/components/Checkout/PaymentMethodsComponent";
@@ -22,19 +22,32 @@ interface OrderData {
   nama?: string;
   email?: string;
   whatsapp?: string;
-  paymentMethod?: string;
 }
 
 export default function CheckoutPage() {
   const router = useRouter();
+  const searchParams = useSearchParams();
   const [orderData, setOrderData] = useState<OrderData | null>(null);
   const [formattedDate, setFormattedDate] = useState<string>("");
   const [nama, setNama] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [whatsapp, setWhatsapp] = useState<string>("");
   const [paymentMethod, setPaymentMethod] = useState<string>("");
+  const [step, setStep] = useState<number>(1);
 
   useEffect(() => {
+    // Check the URL parameter for step
+    const stepParam = searchParams.get("step");
+    if (stepParam) {
+      const parsedStep = parseInt(stepParam, 10);
+      if (!isNaN(parsedStep)) {
+        setStep(parsedStep);
+      }
+    } else {
+      router.push("/");
+      return;
+    }
+
     if (typeof window !== "undefined") {
       const storedData = localStorage.getItem("eSimOrderData");
       if (storedData) {
@@ -58,10 +71,21 @@ export default function CheckoutPage() {
         }
       }
     }
-  }, []);
+  }, [searchParams]);
+
+  const isFormValid = () => {
+    return nama.trim() !== "" && email.trim() !== "" && whatsapp.trim() !== "";
+  };
 
   const handleLanjutkan = () => {
-    if (typeof window !== "undefined") {
+    if (step !== 2) {
+      const nextStep = step + 1;
+      router.push(`/checkout?step=${nextStep}`);
+      setStep(nextStep);
+      return;
+    }
+
+    if (step === 2 && typeof window !== "undefined") {
       const updatedData = {
         ...orderData,
         nama,
@@ -136,12 +160,18 @@ export default function CheckoutPage() {
           <div>
             <h3 className="text-xl font-bold mb-2 mt-5 mb-3">Data Pelanggan</h3>
           </div>
-          <FormComponent nama={nama} setNama={setNama} email={email} setEmail={setEmail} whatsapp={whatsapp} setWhatsapp={setWhatsapp} />
 
-          <PaymentMethodsComponent paymentMethod={paymentMethod} setPaymentMethod={setPaymentMethod} />
+          {step === 1 && <FormComponent nama={nama} setNama={setNama} email={email} setEmail={setEmail} whatsapp={whatsapp} setWhatsapp={setWhatsapp} />}
+
+          {step === 2 && <PaymentMethodsComponent paymentMethod={paymentMethod} setPaymentMethod={setPaymentMethod} />}
 
           <div className="mt-8 mb-5">
-            <button onClick={handleLanjutkan} className="w-full bg-[#2B3499] cursor-pointer text-white py-3 rounded-full font-bold hover:bg-[#3D50C7] transition duration-300">
+            <button
+              onClick={handleLanjutkan}
+              disabled={step === 1 && !isFormValid()}
+              className={`w-full py-3 rounded-full font-bold transition duration-300 ${
+                step === 1 && !isFormValid() ? "bg-gray-300 text-gray-500 cursor-not-allowed" : "bg-[#2B3499] text-white cursor-pointer hover:bg-[#3D50C7]"
+              }`}>
               Lanjutkan
             </button>
           </div>
