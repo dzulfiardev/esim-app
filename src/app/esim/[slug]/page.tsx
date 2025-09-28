@@ -27,14 +27,6 @@ export default function ESimProductPage({ params }: { params: Promise<{ slug: st
     notFound();
   }
 
-  interface DataSizeType {
-    size: string;
-    prices: Array<{
-      validity: string;
-      price: string;
-    }>;
-  }
-
   interface DataSizePriceType { 
     validity: string;
     price: string;
@@ -53,7 +45,7 @@ export default function ESimProductPage({ params }: { params: Promise<{ slug: st
     setSelectedValidity(eSim.dataSize[0].prices[0].validity);
     setPrice(eSim.dataSize[0].prices[0].price);
     setPriceRaw(eSim.dataSize[0].prices[0].price_raw);
-  }, []);
+  }, [eSim.dataSize]);
 
   function handleDataSizeSelect(dataSize: string): void {
     setSelectedData(dataSize);
